@@ -1,0 +1,13 @@
+Most common Methods Used in JS :
+
+1. Alert() : It is use to alert to the user.
+alert("Welcome")
+alert(100)
+alert(true)
+alert(100+ 200)
+
+
+2. prompt() :It is Predefined Funnction it is used to get input form user.
+
+3. parseInt() : used to Convert String into Int.
+4. parseFloat() : used to convert String into float.

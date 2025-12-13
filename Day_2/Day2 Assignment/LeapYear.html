@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var year1=parseInt(prompt("Enter year1"))
+        var year2=parseInt(prompt("Enter year2"))
+        document.write("Leap Year are")
+        document.write("<br/>")
+        for(var x=year1;x<=year2;x++){
+            if((x%4==0 && x%100!=0) || x%400==0){
+                document.write(x)
+                document.write("<br/>")
+            }
+        }
+    </script>
+</body>
+</html>
