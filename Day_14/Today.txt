@@ -1,0 +1,8 @@
+There are different types of Fiunction :
+1. getElementById("101")
+2. getElementByTagName("h1") 
+3. querySelector("#h1")
+4. querySelectorAll("#h1")
+5. innerHTML
+6. innerText
+7. getElementByName("kattappa")
