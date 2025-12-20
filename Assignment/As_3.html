@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Job traceker</h1>
+    <script>
+        var tracker = [{
+                jobTitle: 'Developer',
+                isApplied: true,
+                isRemote: false
+
+            }, {
+                jobTitle: 'HR',
+                isApplied: true,
+                isRemote: true
+
+            }, {
+                jobTitle: 'Tester',
+                isApplied: false,
+                isRemote: false
+
+            }, {
+                jobTitle: 'Manager',
+                isApplied: true,
+                isRemote: true
+
+            },
+
+            {
+                jobTitle: 'Product Manager',
+                isApplied: false,
+                isRemote: true
+
+            }
+
+        ]
+
+        tracker.forEach((track) => {
+            var remote;
+            var applyed;
+
+            if (track.isRemote) {
+                remote = "remote"
+            } else {
+                remote = "Not remote"
+            }
+
+            if (track.isApplied) {
+                applyed = "applied"
+            } else {
+                applyed = "not-applied"
+            }
+
+            console.log(applyed + " for " + remote + " role " + track.jobTitle);
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>Travel plan</h3>
+    <script>
+        var travel = [{
+            destination: 'Goa',
+            isBooked: true,
+            isInternational: false
+        }, {
+            destination: 'Paris',
+            isBooked: false,
+            isInternational: true
+        }, {
+            destination: 'Manali',
+            isBooked: false,
+            isInternational: false
+        }, {
+            destination: 'Dubai',
+            isBooked: true,
+            isInternational: true
+        }, {
+            destination: 'Manabaleshwar',
+            isBooked: true,
+            isInternational: false
+        }]
+
+        travel.forEach(function(travles) {
+            var booked;
+            var tripType;
+
+            if (travles.isBooked) {
+                booked = "booked";
+            } else {
+                booked = "not booked";
+            }
+
+            if (travles.isInternational) {
+                tripType = "International";
+            } else {
+                tripType = "domestic";
+            }
+
+            console.log("Trip to " + travles.destination +
+                " is " + booked +
+                " and it's a " + tripType + " trip");
+        });
+    </script>
+</body>
+
+</html>

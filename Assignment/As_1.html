@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <H3>Hotel</H3>
+    <script>
+        var order = [{
+            dishName: "RasMalai",
+            isDelivered: true,
+            isVegetarian: true
+        }, {
+            dishName: "Paneer",
+            isDelivered: false,
+            isVegetarian: false
+        }, {
+            dishName: "Chicken",
+            isDelivered: true,
+            isVegetarian: false
+        }, {
+            dishName: "KFC",
+            isDelivered: true,
+            isVegetarian: true
+        }];
+
+        order.forEach(function(orders) {
+            result = 'Your ';
+            if (orders.isVegetarian && orders.isDelivered) {
+                result = result + " veg dish " + orders.dishName + " is delivered";
+            } else if (!orders.isDelivered) {
+                result = result + orders.dishName + " is still being prepared";
+            }
+
+
+
+            console.log(result);
+        });
+    </script>
+</body>
+
+</html>

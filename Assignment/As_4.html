@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>Library System</h3>
+    <script>
+        var books = [{
+                title: "java",
+                author: "James Bhaiya",
+                isbn: "ISBN001",
+                price: 700
+            }, {
+                title: "Python",
+                author: "Shivam Bhaiya",
+                isbn: "ISBN005",
+                price: 670
+            }, {
+                title: "MERN",
+                author: "Maharah ji",
+                isbn: "ISBN089",
+                price: 500
+            }, {
+                title: "C++",
+                author: "Vegranik",
+                isbn: "ISBN090",
+                price: 450
+            },
+
+
+        ];
+
+        for (var i = 0; i < books.length; i++) {
+            if (books[i].price > 500) {
+                books[i].price -= books[i].price * 0.10;
+            }
+        }
+
+        while (true) {
+            var choice = prompt("Library Menu:\n" +
+                "1. View All Books\n" +
+                "2. Search Book by Title\n" +
+                "3. Most Expensive Book\n" +
+                "4. Books by Author\n" +
+                "5. Count Books Above Price\n" +
+                "6. Total Inventory Value\n" +
+                "7. Exit\n\n" +
+                "Enter your choice:"
+            );
+
+
+
+            if (choice === "1") {
+                var output = "";
+                for (var i = 0; i < books.length; i++) {
+                    output += books[i].title + " | " + books[i].author + " | " + books[i].price + "\n";
+                };
+                alert(output);
+            } else if (choice === "2") {
+                var search = prompt("Enter Book title");
+                var found = false;
+                for (var i = 0; i < books.length; i++) {
+                    if (books[i].title.toLocaleLowerCase() === search.toLocaleLowerCase()) {
+                        alert("Found " + books[i].title + " written by " + books[i].author);
+                        fount = true;
+                        break;
+                    }
+                }
+                if (!found) {
+                    alert("Book not found");
+                }
+            } else if (choice === "3") {
+                var expensive = books[0];
+
+                for (var i = 0; i < books.length; i++) {
+                    if (books[i] > expensive.price) {
+                        expensive = books[i];
+                    }
+                }
+                alert("Most Expensive Book " + expensive.title + " ₹" + expensive.price);
+            } else if (choice === "4") {
+                var authorName = prompt("Enter author name");
+                var result = "";
+                for (var i = 0; i < books.length; i++) {
+                    if (books[i].author.toLocaleLowerCase() === authorName.toLocaleLowerCase()) {
+                        result += books[i].title + " ₹" + books[i].price + "\n";
+                    }
+                }
+                alert(result || "No books found");
+            } else if (choice === "5") {
+                var limit = Number(prompt("Enter price"));
+                var count = 0;
+                for (var i = 0; i < books.length; i++) {
+                    if (books[i].price > limit) {
+                        count++;
+                    }
+                }
+
+                alert("Books above ₹" + limit + " : " + count);
+            } else if (choice === "6") {
+                var total = 0;
+                for (var i = 0; i < books.length; i++) {
+                    total += books[i].price;
+                }
+                alert("Total Price is: " + total);
+            } else if (choice === "7") {
+                alert("Exiting............");
+                break;
+            } else {
+                alert("Invalid choice");
+            }
+        }
+    </script>
+</body>
+
+</html>
