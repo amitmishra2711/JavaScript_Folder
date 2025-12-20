@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .n3{
+            color: red;
+        }
+        #a{
+            background-color: aqua;
+        }
+        #b{
+            background-color: aquamarine;
+        }
+        #abc{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="a">Hello</h1>
+    <h1 id="b" class="n3">Welcome</h1>
+    <h1 id="c" class="n3">Java Script</h1>
+
+
+    <h1 id="abc" > Hello <b>Java</b></h1>
+
+    <script>
+// Get Element By ID 
+
+// var y=document.getElementById("101");
+// document.writeln(y.innerText, "<br>")
+
+// Get Elements of Tag Name 
+    //     var x=document.getElementsByTagName("h1");
+    //     document.writeln(x.length ,"<br>")
+    //     for(var y of x)
+    // {
+    //     document.writeln(y.innerText)
+    // }
+
+    //Get Element By name
+    // var z=document.getElementsByName("n3");
+    // for(var y of z)
+    // {
+    //     document.writeln("<br>",y.innerText)
+    // }
+
+    //Query Selector : This Method return first element that matches specific Css Selector.
+
+    // var x=document.querySelector(".n3")
+    // document.writeln(x.innerText)
+    // document.writeln(x.innerHTML)
+    
+    // Here Problem is that there a two tag have same class name but print only one 
+
+    var x=document.querySelectorAll(".n3")
+    for(var y of x)
+    {
+        document.writeln("<br>",y.innerText)
+        document.writeln("<br>",y.innerHTML)
+        
+    }
+
+    //InnerText : innertext is a Property of DOM  element gets or sets only the visible text and content inside an element. It igonres HTML Tags.If tags is hidden form css it is not included.
+
+
+    // InnerHTML : InnerHTML is a Property that gets or sets Html Content icluding tags, attributes and structure inside an element.
+
+    var x=document.getElementById("abc")
+    x.innerText="<b> Java I Miss You </b>";
+   
+    x.innerHTML="<b> Java I Miss You </b>";
+   
+    document.writeln("<br>",x.innerHTML)
+   
+    document.writeln("<br>",x.innerText)
+    
+
+    </script>
+</body>
+</html>
