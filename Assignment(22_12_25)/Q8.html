@@ -1,0 +1,13 @@
+<script>
+var held = Number(prompt("Classes held:"));
+var attended = Number(prompt("Classes attended:"));
+var medical = prompt("Medical cause (Y/N):");
+
+var percent = (attended / held) * 100;
+
+if (percent >= 75 || medical == "Y") {
+    console.log("Allowed in Exam");
+} else {
+    console.log("Not Allowed");
+}
+</script>

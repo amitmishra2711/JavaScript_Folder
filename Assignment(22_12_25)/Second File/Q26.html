@@ -1,0 +1,16 @@
+<script>
+var p = Number(prompt("Physics:"));
+var c = Number(prompt("Chemistry:"));
+var b = Number(prompt("Biology:"));
+var m = Number(prompt("Maths:"));
+var comp = Number(prompt("Computer:"));
+
+var per = (p + c + b + m + comp) / 5;
+
+if (per >= 90) console.log("Grade A");
+else if (per >= 80) console.log("Grade B");
+else if (per >= 70) console.log("Grade C");
+else if (per >= 60) console.log("Grade D");
+else if (per >= 40) console.log("Grade E");
+else console.log("Grade F");
+</script>

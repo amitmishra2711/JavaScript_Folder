@@ -1,0 +1,11 @@
+<script>
+var ch = prompt("Enter C or F:");
+var temp = Number(prompt("Enter temperature:"));
+
+if (ch == 'C' || ch == 'c')
+    console.log((temp - 32) * 5 / 9);
+else if (ch == 'F' || ch == 'f')
+    console.log((temp * 9 / 5) + 32);
+else
+    console.log("Invalid Choice");
+</script>

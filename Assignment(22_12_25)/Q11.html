@@ -1,0 +1,15 @@
+<script>
+var age = Number(prompt("Enter age:"));
+var sex = prompt("Sex (M/F):");
+var status = prompt("Marital status (Y/N):");
+
+if (sex == "F") {
+    console.log("Urban Area");
+} else if (sex == "M" && age >= 20 && age <= 40) {
+    console.log("Anywhere");
+} else if (sex == "M" && age > 40 && age <= 60) {
+    console.log("Urban Area");
+} else {
+    console.log("ERROR");
+}
+</script>

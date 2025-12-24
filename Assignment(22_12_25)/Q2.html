@@ -1,0 +1,11 @@
+<script>
+var quantity = Number(prompt("Enter quantity:"));
+var price = 100;
+var total = quantity * price;
+
+if (total > 1000) {
+    total = total - (total * 10 / 100);
+}
+
+console.log("Total Cost =", total);
+</script>

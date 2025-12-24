@@ -1,0 +1,13 @@
+<script>
+var held = Number(prompt("Classes held:"));
+var attended = Number(prompt("Classes attended:"));
+
+var percent = (attended / held) * 100;
+console.log("Attendance =", percent);
+
+if (percent >= 75) {
+    console.log("Allowed in Exam");
+} else {
+    console.log("Not Allowed");
+}
+</script>
