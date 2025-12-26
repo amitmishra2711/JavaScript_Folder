@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <div id="menu">
+        <h1>Hello</h1>
+        <h2>World
+        </h2>
+    </div>
+    <!-- <input onkeydown="alert('Key Pressed Down')" placeholder="Press any key"/>
+<input onkeyup="alert('Key Up')" placeholder="Release Key"/>
+<input onkeypress="alert('Character Key Pressed')" placeholder="Press a character key"/> -->
+
+<!-- <form onsubmit="alert('Form Submitted'); return false;">
+  <button>Submit</button>
+</form>
+ -->
+<!-- <form onreset="confirm('Form Reset')">
+  <input placeholder="Type here"/>
+  <button type="reset">Reset</button>
+</form> -->
+
+
+<!-- <form onsubmit="alert('Form Submitted'); return false;">
+  <button>Submit</button>
+</form> -->
+
+
+<!-- <input onfocus="alert('Input Focused')" placeholder="Click inside"/> -->
+
+<!-- <input onblur="alert('Focus Lost')" placeholder="Click and leave"/> -->
+
+<!-- <input onchange="alert('Value Changed')" placeholder="Change value & click outside"/> -->
+
+
+<!-- <input oninput="document.log(this.value)" placeholder="Start typing"/> -->
+
+<!-- <input onselect="alert('Text Selected')" value="Select this text"/> -->
+
+<!-- <form>
+  <input type="email" required oninvalid="alert('Invalid Email!')" placeholder="Enter email"/>
+  <button type="submit">Check</button>
+</form>
+ -->
+
+ <form id="f">
+  <input name="x" value="10"/>
+  <button>Send</button>
+</form>
+
+<script>
+// document.getElementById("f").addEventListener("formdata", ()=>{
+//   alert("FormData Created");
+// });
+
+var x=document.getElementById("menu").children;
+console.log(x)
+console.log(x[0].innerHTML="<b>Hello Buddy</b>")
+// </script>
+
+
+</body>
+</html>
