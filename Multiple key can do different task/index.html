@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Keyboard Event Example</title>
+  <style>
+    #output{
+      margin-top: 20px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Press A, B, C, D, or E key</h2>
+  <div id="output"></div>
+
+<script>
+document.addEventListener("keydown", (e) => {
+  let key = e.key.toLowerCase();
+
+  if(key === "a"){
+    document.body.style.background = "lightgray";
+    document.getElementById("output").innerText = "Background changed to Light Gray!";
+  }
+  else if(key === "b"){
+    document.body.style.background = ""; // reset background
+    document.body.innerHTML = "<h1 style='text-align:center;'>You pressed B!</h1>";
+  }
+  else if(key === "c"){
+    alert("You pressed C → Popup triggered!");
+  }
+  else if(key === "d"){
+    document.getElementById("output").innerText = "You pressed D → Text added on page!";
+  }
+  else if(key === "e"){
+    document.getElementById("output").innerText = "Current Date & Time: " + new Date();
+  }
+});
+</script>
+
+</body>
+</html>
