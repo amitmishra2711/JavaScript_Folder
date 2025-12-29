@@ -1,25 +1,107 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Login Form</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Portal Registration</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h2>Login Form</h2>
+<div class="container">
+    <h2>Online Job Portal – Registration Form</h2>
 
-<form name="myForm" action="welcome.html" onsubmit="return validateForm()">
+    <form id="regForm" onsubmit="return validateForm()">
 
-  Name: <br>
-  <input type="text" name="username"><br><br>
+        <!-- Personal Info -->
+        <h3>Personal Information</h3>
+        <label>Full Name:</label>
+        <input type="text" id="name">
+        <span id="nameError"></span>
 
-  Password: <br>
-  <input type="password" name="password"><br><br>
+        <label>Date of Birth:</label>
+        <input type="date" id="dob">
+        <span id="dobError"></span>
 
-  <input type="submit" value="Login">
-</form>
+        <label>Gender:</label>
+        <div class="gender-box">
+            <input type="radio" name="gender" value="Male"> Male
+            <input type="radio" name="gender" value="Female"> Female
+            <input type="radio" name="gender" value="Other"> Other
+        </div>
+        <span id="genderError"></span>
 
-<p id="error" style="color:red;"></p>
+        <!-- Account Details -->
+        <h3>Account Details</h3>
+        <label>Username:</label>
+        <input type="text" id="username">
+        <span id="userError"></span>
+
+        <label>Password:</label>
+        <input type="password" id="pass">
+        <span id="passError"></span>
+
+        <label>Confirm Password:</label>
+        <input type="password" id="cpass">
+        <span id="cpassError"></span>
+
+        <!-- Contact -->
+        <h3>Contact Information</h3>
+        <label>Email:</label>
+        <input type="email" id="email">
+        <span id="emailError"></span>
+
+        <label>Mobile:</label>
+        <input type="text" id="mobile">
+        <span id="mobileError"></span>
+
+        <label>Country:</label>
+        <select id="country">
+            <option value="">--Select--</option>
+            <option>India</option>
+            <option>USA</option>
+            <option>UK</option>
+            <option>Canada</option>
+        </select>
+        <span id="countryError"></span>
+
+        <!-- Skills -->
+        <h3>Skills & Preferences</h3>
+        <label>Skills (Select min 2):</label>
+        <div class="skill-box">
+            <input type="checkbox" class="skill"> JavaScript
+            <input type="checkbox" class="skill"> SQL
+            <input type="checkbox" class="skill"> Python
+            <input type="checkbox" class="skill"> React
+        </div>
+        <span id="skillError"></span>
+
+        <label>Experience Level:</label>
+        <select id="exp">
+            <option value="">--Select--</option>
+            <option>Fresher</option>
+            <option>1-3 Years</option>
+            <option>3+ Years</option>
+        </select>
+        <span id="expError"></span>
+
+        <label>Expected Salary:</label>
+        <input type="text" id="salary">
+        <span id="salaryError"></span>
+
+        <!-- Terms -->
+        <h3>Terms and Conditions</h3>
+        <div class="terms-box">
+            <input type="checkbox" id="terms"> I agree to Terms & Conditions
+        </div>
+        <span id="termsError"></span>
+
+        <button type="submit">Register</button>
+        <p id="successMsg"></p>
+    </form>
+</div>
 
 <script src="script.js"></script>
 </body>
 </html>
+  
