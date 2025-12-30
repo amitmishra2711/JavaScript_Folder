@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Callback Hell Example</title>
+</head>
+<body>
+
+<script>
+  function getData(id, next) {
+    setTimeout(() => {
+      console.log("Data ID:", id);
+
+      if (next) {
+        next();
+      }
+    }, 200);
+  }
+
+  getData(1, () => {
+    getData(2, () => {
+      getData(3);
+    });
+  });
+
+</script>
+
+</body>
+</html>
