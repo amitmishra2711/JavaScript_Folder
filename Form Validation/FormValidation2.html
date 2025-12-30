@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Product Feedback</h2>
+
+        <form onsubmit="return validateForm()" action="message.html">
+            <div class="mb_3">
+                <label>Customer Name</label>
+                <input type="text" id="name">
+                <span class="error" id="nameError"></span>
+            </div><br>
+
+
+            <div class="mb3">
+                <label>Order Id</label>
+                <input type="text" id="orderId">
+                <span class="error" id="orderError"></span>
+            </div><br>
+
+
+
+
+            <div class="mb3">
+                <label>Email</label>
+                <input type="email" id="email">
+                <span class="error" id="emailError"></span>
+            </div><br>
+
+            <div class="mb3">
+
+                <label>Rating</label><br>
+                <input type="radio" name="rating" value="1">⭐<br>
+                <input type="radio" name="rating" value="2">⭐⭐<br>
+                <input type="radio" name="rating" value="3">⭐⭐⭐<br>
+                <input type="radio" name="rating" value="4">⭐⭐⭐⭐<br>
+                <input type="radio" name="rating" value="5">⭐⭐⭐⭐⭐<br>
+                <br>
+                <span class="error" id="ratingError"></span>
+            </div><br>
+
+            <div class="mb3">
+
+                <label>Feedback Type</label>
+                <select id="type">
+    <option value="">Select</option>
+    <option>Complain</option>
+    <option>Suggestion</option>
+    <option>Praise</option>
+</select>
+                <span class="text" id="typeError"></span>
+            </div><br>
+
+
+
+            <div class="mb3">
+                <label>Feedback Message</label>
+                <textarea id="message"></textarea>
+                <span class="text" id="messageError"></span>
+
+            </div><br>
+
+            <div class="mb3">
+                <label>Recommender Other</label><br>
+                <input type="radio" name="recommend" value="yes">Yes
+                <input type="radio" name="recommend" value="no">No
+                <br>
+                <span class="text" id="recommendError"></span>
+            </div><br><br>
+
+
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
+
+
+        </form>
+    </div>
+    <script>
+        function validateForm() {
+            let valid = true;
+
+            document.querySelectorAll("span").forEach(e => e.innerHTML = "");
+
+            let name = document.getElementById("name").value;
+            let orderId = document.getElementById("orderId").value;
+            let email = document.getElementById("email").value;
+            let message = document.getElementById("message").value;
+
+
+            if (!/^[A-Za-z ]+$/.test(name)) {
+                nameError.innerHTML = "Enter valid name";
+                valid = false;
+            }
+
+            if (!/^[A-Za-z0-9]{8}$/.test(orderId)) {
+                orderError.innerHTML = "Order ID must be 8 characters";
+                valid = false;
+            }
+
+
+            if (!/^\S+@\S+\.\S+$/.test(email)) {
+                emailError.innerHTML = "Enter valid email";
+                valid = false;
+            }
+
+
+            if (!document.querySelector('input[name="rating"]:checked')) {
+                ratingError.innerHTML = "Select rating";
+                valid = false;
+            }
+
+
+            if (type.value === "") {
+                typeError.innerHTML = "Select feedback type";
+                valid = false;
+            }
+
+
+            if (message.length < 20 || message.length > 500) {
+                messageError.innerHTML = "Message must be 20–500 characters";
+                valid = false;
+            }
+
+
+            if (!document.querySelector('input[name="recommend"]:checked')) {
+                recommendError.innerHTML = "Select Yes or No";
+                valid = false;
+            }
+
+            return valid;
+        }
+    </script>
+
+
+
+</body>
+
+</html>
