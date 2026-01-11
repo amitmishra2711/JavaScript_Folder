@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<form onsubmit="if(validate()){ saveFormData(); } return false;">
+
+    <div>
+        <label for="fullname">Enter Full Name</label>
+        <input type="text" id="fullname" placeholder="Enter Your Full Name">
+        <span class="error" id="nameError"></span>
+    </div>
+
+    <div>
+        <label for="email">Enter Email</label>
+        <input type="email" id="email" placeholder="Enter Your valid email">
+        <span class="error" id="emailError"></span>
+    </div>
+
+    
+    <div>
+        <label for="age">Enter Age</label>
+        <input type="text" id="age" placeholder="Enter Your Age">
+        <span class="error" id="ageError"></span>
+    </div>
+
+
+    <input type="submit" value="Submit">
+
+</form>
+
+<script src="form.js"></script>
+</body>
+</html>

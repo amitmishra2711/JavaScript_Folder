@@ -6,11 +6,15 @@ let arr=[10,20];
 // console.log(y)
 
 // With Destructing Assignment
-let[x,y]=arr
-console.log(x)
-console.log(y)
+// let[x,y]=arr
+// console.log(x)
+// console.log(y)
+// let myArr=[10,20,30,40,50,60]
 
+// let [x,...y]=myArr
+// console.log(x)
 
+// console.log(y)
 
 // In Object
 
@@ -21,6 +25,7 @@ let obj={
 }
 
 // variable name must be same as Key Name :
+// let n=obj.name; problem 
 let {name,dname,salary}=obj
 console.log(name)
 console.log(dname)

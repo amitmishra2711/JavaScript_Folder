@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Cards</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+.cart-btn{
+    display: inline-block;
+    padding: 10px 18px;
+    background-color: #ff6f00;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+.cart-btn:hover{
+    background-color: #e65100;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Product 1 -->
+    <div class="product-card">
+        <img id="img1" src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_t.png">
+        <h3 id="name1">Fjallraven Backpack</h3>
+        <p id="price1">$109.95</p>
+        <button onclick="addToCart(1)">🛒 Add</button>
+    </div>
+
+    <!-- Product 2 -->
+    <div class="product-card">
+        <img id="img2" src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_t.png">
+        <h3 id="name2">Mens Casual T-Shirt</h3>
+        <p id="price2">$22.30</p>
+        <button onclick="addToCart(2)">🛒 Add</button>
+    </div>
+
+    <!-- Product 3 -->
+    <div class="product-card"> 
+        <img id="img3" src="https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_t.png">
+        <h3 id="name3">Mens Cotton Jacket</h3>
+        <p id="price3">$55.99</p>
+        <button onclick="addToCart(3)">🛒 Add</button>
+    </div>
+
+    <!-- Product 4 -->
+    <div class="product-card">
+        <img id="img4" src="https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_t.png">
+        <h3 id="name4">Silver Bracelet</h3>
+        <p id="price4">$15.99</p>
+        <button onclick="addToCart(4)">🛒 Add</button>
+    </div>
+
+    <!-- Product 5 -->
+    <div class="product-card">
+        <img id="img5" src="https://fakestoreapi.com/img/51UDEzMJVpL._AC_UL640_QL65_ML3_t.png">
+        <h3 id="name5">Gold Necklace</h3>
+        <p id="price5">$695.00</p>
+        <button onclick="addToCart(5)">🛒 Add</button>
+    </div>
+
+</div>
+
+<br>
+<a href="cart.html" class="cart-btn">Go to Cart 🛒</a>
+<script src="script.js"></script>
+</body>
+</html>
