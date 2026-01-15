@@ -6,8 +6,89 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
+/* Reset */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Page background */
+body{
+    background-color: #f4f6f8;
+    padding: 30px;
+}
+
+/* Container */
+.container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Product card */
+.product-card{
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover effect */
+.product-card:hover{
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+/* Image */
+.product-card img{
+    width: 100%;
+    height: 220px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+/* Product name */
+.product-card h3{
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 6px;
+}
+
+/* Price */
+.product-card p{
+    font-size: 15px;
+    color: #4f46e5;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+/* Add button */
+.product-card button{
+    background-color: #ff6f00;
+    color: #fff;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background 0.3s ease;
+}
+
+/* Button hover */
+.product-card button:hover{
+    background-color: #e65100;
+}
+
+/* Cart button (already present) */
 .cart-btn{
     display: inline-block;
+    margin-top: 25px;
     padding: 10px 18px;
     background-color: #ff6f00;
     color: white;
@@ -15,9 +96,11 @@
     border-radius: 5px;
     font-weight: bold;
 }
+
 .cart-btn:hover{
     background-color: #e65100;
 }
+
 </style>
 </head>
 <body>

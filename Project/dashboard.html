@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>SmartExpense Dashboard</title>
+
+<style>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body{
+    background: #f4f6f8;
+    padding: 20px;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg,#4f46e5,#4338ca);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+}
+
+.btn{
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    background: #4f46e5;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+}
+.btn:hover{ background:#4338ca; }
+
+.btn.danger{
+    background:#e53935;
+}
+.btn.danger:hover{
+    background:#c62828;
+}
+
+.tracker{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.card{
+    background: white;
+    padding: 20px;
+    border-radius: 14px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.card h3{
+    margin-bottom: 12px;
+    color:#333;
+}
+
+.card input{
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+#total{
+    font-size: 36px;
+    color:#4f46e5;
+    text-align: center;
+}
+
+#list{
+    list-style: none;
+    max-width: 900px;
+    margin: auto;
+}
+
+#list li{
+    background: white;
+    padding: 14px 20px;
+    margin-bottom: 12px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+.action button{
+    margin-left: 8px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.action .edit{
+    background:#ffb300;
+}
+.action .delete{
+    background:#e53935;
+    color:white;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h2>💰 Smart Expense Dashboard</h2>
+  <button onclick="logout()" class="btn danger">Logout</button>
+</header>
+
+<section class="tracker">
+  <div class="card">
+    <h3>Set Salary</h3>
+    <input type="number" id="salary" placeholder="Enter Monthly Salary">
+    <button onclick="setSalary()" class="btn">Save Salary</button>
+
+    <hr style="margin:15px 0">
+
+    <h3>Add Expense</h3>
+    <input type="text" id="title" placeholder="Expense Title">
+    <input type="number" id="amount" placeholder="Amount">
+    <button onclick="addExpense()" class="btn">Add Expense</button>
+  </div>
+
+  <div class="card">
+    <h3>Remaining Balance</h3>
+    <h1 id="total">₹0</h1>
+  </div>
+</section>
+
+<ul id="list"></ul>
+
+<script>
+let expenses = JSON.parse(localStorage.getItem("expenses")) || [];
+let salary = Number(localStorage.getItem("salary")) || 0;
+
+render();
+
+function setSalary(){
+    let sal = Number(document.getElementById("salary").value);
+    if(sal <= 0){
+        alert("Enter valid salary");
+        return;
+    }
+    salary = sal;
+    localStorage.setItem("salary", salary);
+    render();
+}
+
+function addExpense(){
+    let title = document.getElementById("title").value.trim();
+    let amount = Number(document.getElementById("amount").value);
+
+    if(title === "" || amount <= 0){
+        alert("Enter valid expense");
+        return;
+    }
+
+    if(amount > salary){
+        alert("Not enough balance");
+        return;
+    }
+
+    expenses.push({ title, amount });
+    salary -= amount;
+
+    localStorage.setItem("expenses", JSON.stringify(expenses));
+    localStorage.setItem("salary", salary);
+
+    document.getElementById("title").value="";
+    document.getElementById("amount").value="";
+
+    render();
+}
+
+function render(){
+    document.getElementById("list").innerHTML = "";
+
+    expenses.forEach((e,i)=>{
+        let li = document.createElement("li");
+        li.innerHTML = `
+          <span>${e.title} - ₹${e.amount}</span>
+          <div class="action">
+            <button class="edit" onclick="editExpense(${i})">✏️</button>
+            <button class="delete" onclick="deleteExpense(${i})">❌</button>
+          </div>
+        `;
+        document.getElementById("list").appendChild(li);
+    });
+
+    document.getElementById("total").innerText = "₹" + salary;
+}
+
+function editExpense(index){
+    let newAmt = prompt("Enter new amount", expenses[index].amount);
+    if(newAmt === null) return;
+
+    let diff = Number(newAmt) - expenses[index].amount;
+
+    if(salary - diff < 0){
+        alert("Not enough balance");
+        return;
+    }
+
+    salary -= diff;
+    expenses[index].amount = Number(newAmt);
+
+    localStorage.setItem("expenses", JSON.stringify(expenses));
+    localStorage.setItem("salary", salary);
+    render();
+}
+
+function deleteExpense(index){
+    salary += expenses[index].amount;
+    expenses.splice(index,1);
+
+    localStorage.setItem("expenses", JSON.stringify(expenses));
+    localStorage.setItem("salary", salary);
+    render();
+}
+
+function logout(){
+    localStorage.clear();
+    alert("Logged out");
+    location.reload();
+}
+</script>
+
+</body>
+</html>

@@ -2,6 +2,96 @@
 <html>
 <head>
     <title>My Cart</title>
+    
+<style>
+/* Reset */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Page background */
+body{
+    background-color: #f4f6f8;
+    padding: 30px;
+}
+
+/* Heading */
+h2{
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+/* Cart container */
+#cart{
+    max-width: 700px;
+    margin: auto;
+}
+
+/* Cart item */
+.cart-item{
+    background: #ffffff;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Item name */
+.cart-item span{
+    font-size: 15px;
+    color: #333;
+}
+
+/* Price */
+.cart-item .price{
+    font-weight: bold;
+    color: #4f46e5;
+}
+
+/* Clear cart button */
+button{
+    display: block;
+    margin: 30px auto 15px;
+    padding: 10px 20px;
+    background-color: #e53935;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: #c62828;
+}
+
+/* Back link */
+a{
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    color: #4f46e5;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+/* Empty cart message */
+.empty{
+    text-align: center;
+    color: #777;
+    font-size: 15px;
+}
+</style>
 </head>
 <body>
 

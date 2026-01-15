@@ -1,0 +1,32 @@
+<script>
+let size=prompt("Enter a Size of Array :")*1;
+    let arr=new Array(size);
+    for(i=0;i<arr.length;i++)
+{
+    arr[i]=prompt("Value---")*1;
+
+}
+    let low = 0, mid = 0;
+    let high = arr.length - 1;
+
+    while (mid <= high) {
+        if (arr[mid] === 0) {
+            [arr[low], arr[mid]] = [arr[mid], arr[low]];
+            low++;
+            mid++;
+        } 
+        else if (arr[mid] === 1) {
+            mid++;
+        } 
+        else {
+            [arr[mid], arr[high]] = [arr[high], arr[mid]];
+            high--;
+        }
+    }
+
+    for (const x of arr) {
+        document.write("<br>")
+        document.writeln(x)
+    }
+
+</script>

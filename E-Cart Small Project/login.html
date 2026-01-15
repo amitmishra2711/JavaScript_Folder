@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title> Login Page For Shariq and Ashwini Project</title>
+
+<style>
+    
+.loader {
+    display: none;
+    margin: 15px auto 0;
+    width: 30px;
+    height: 30px;
+    border: 4px solid #ddd;
+    border-top: 4px solid #4f46e5;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    100% { transform: rotate(360deg); }
+}
+
+button:disabled {
+    background: #9fa8da;
+    cursor: not-allowed;
+}
+
+body {
+    background: #eef2f7;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-box {
+    background: white;
+    width: 380px;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.login-box h2 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.field {
+    margin-bottom: 18px;
+}
+
+.field input {
+    width: 100%;
+    padding: 10px;
+    font-size: 15px;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    outline: none;
+}
+
+.field.error input {
+    border-bottom: 2px solid red;
+}
+
+.field.success input {
+    border-bottom: 2px solid green;
+}
+
+.message {
+    font-size: 13px;
+    color: red;
+    visibility: hidden;
+}
+
+.field.error .message {
+    visibility: visible;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: #4f46e5;
+    color: white;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #4338ca;
+}
+
+.status {
+    text-align: center;
+    margin-top: 15px;
+    font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="login-box">
+    <h2>Login</h2>
+
+    <div class="field" id="userField">
+        <input type="text" id="username" placeholder="Username">
+        <div class="message">Only letters allowed (No digits / special characters)</div>
+    </div>
+
+    <div class="field" id="passField">
+        <input type="password" id="password" placeholder="Password">
+        <div class="message">
+            8–15 chars, start with Capital, 1 special character
+        </div>
+    </div>
+
+    <button onclick="validate()">Login</button>
+
+    <div class="status" id="status"></div>
+    <div class="loader" id="loader"></div>
+
+</div>
+
+<script>
+function validate() {
+
+    let username = document.getElementById("username").value.trim();
+    let password = document.getElementById("password").value.trim();
+
+    let userField = document.getElementById("userField");
+    let passField = document.getElementById("passField");
+    let status = document.getElementById("status");
+
+    let isValid = true;
+
+    let usernameRegex = /^[A-Za-z]+$/;
+
+   
+    let passwordRegex = /^[A-Z](?=.*[@#$!%^&*]).{7,14}$/;
+
+
+    if(username === "" || !usernameRegex.test(username)) {
+        userField.className = "field error";
+        isValid = false;
+    } else {
+        userField.className = "field success";
+    }
+
+    if(password === "" || !passwordRegex.test(password)) {
+        passField.className = "field error";
+        isValid = false;
+    } else {
+        passField.className = "field success";
+    }
+
+
+    if(isValid) {
+        status.style.color = "green";
+        status.innerText = "Login Successful ✅";
+    } else {
+        status.innerText = "";
+    }
+
+   if(isValid) {
+    status.style.color = "green";
+    status.innerText = "Login Successful ✅ Redirecting...";
+    
+    document.querySelector("button").disabled = true;
+    document.getElementById("loader").style.display = "block";
+
+    setTimeout(() => {
+        localStorage.setItem("username",username)
+        localStorage.setItem("password",password)
+        window.location.href = "index.html";
+    }, 2000);
+} else {
+    status.innerText = "";
+}
+
+
+}
+</script>
+
+</body>
+</html>

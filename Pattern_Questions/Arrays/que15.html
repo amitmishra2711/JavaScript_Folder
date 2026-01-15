@@ -1,0 +1,21 @@
+<script>
+
+    let size=prompt("Enter a Size of Array :")*1;
+    let arr=new Array(size);
+    for(i=0;i<arr.length;i++)
+{
+    arr[i]=prompt("Value---")*1;
+
+}
+
+    let target=prompt("Enter a Target Value :")*1;
+    let count=0;
+for(i=0;i<arr.length;i++)
+{
+    if(arr[i]==target)
+{
+    count++;
+}
+}
+document.writeln(target," is Occur ",count," times.");
+</script>

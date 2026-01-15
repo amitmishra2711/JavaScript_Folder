@@ -64,3 +64,66 @@ console.log("Set Interval")
 
 setTimeout(()=>console.log("Set Time Out 1"),4000)
 setTimeout(()=>console.log("Set Time Out 1"),6000) */
+
+
+/* async function demo() {
+  await new Promise(() => {}); // never resolves
+  return 10;
+}
+
+let p = demo();
+console.log(p);
+console.log(demo())
+
+ */
+
+/* async function fetchData() {
+  await new Promise(resolve => {
+    setTimeout(resolve, 5000);
+  });
+  return "Success";
+}
+
+let p = fetchData();
+console.log(p); // pending
+ */
+
+
+async function add() {
+  console.log("Hello-1");
+  console.log("Hello-2");
+  console.log("Hello-3");
+  console.log("Hello-4");
+  console.log("Hello-5");
+  console.log("Hello-6");
+  console.log("Hello-7");
+
+  try {
+    const result = await new Promise((res, rej) => {
+      let x = Number(prompt("Enter Age:"));
+      if (x > 18) {
+        res("Problem Solved");
+      } else {
+        rej("Problem Not Solved");
+      }
+    });
+
+    
+    console.log("Hello-8");
+    console.log(result);
+
+  } catch (err) {
+    console.log("Hello-9");
+    console.log(err);
+  }
+  console.log("Hello-4");
+  console.log("Hello-5");
+  console.log("Hello-6");
+  console.log("Hello-7");
+}
+
+const abc = add();
+console.log(abc);
+
+
+
